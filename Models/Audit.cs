@@ -6,8 +6,8 @@ namespace AuditFunction.Models
 {
     public class Audit
     {
-        public Guid ClaimId { get; set; }
-        public DateTime Timestamp { get; set; }
+        public int ClaimId { get; set; }
+        public string Timestamp { get; set; }
         public string Operation { get; set; }
     }
 }
