@@ -16,7 +16,7 @@ namespace AuditFunction
     public static class ClaimStatusUpdate
     {
         [FunctionName("ClaimStatusUpdate")]
-        public static void Run([ServiceBusTrigger("auditqueue", Connection = "QueueConnectionString")] string myQueueItem, ILogger log)
+        public static void Run([ServiceBusTrigger("auditqueue", Connection = "Endpoint=sb://auditqueue.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=ahSn52duR61E/CN2/NoJKMpj6Vu6/UKLtTTf8NXD7uE=")] string myQueueItem, ILogger log)
         {
             var AuditRecieved = JsonConvert.DeserializeObject<Audit>(myQueueItem);
             using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable("SqlConnectionString")))
